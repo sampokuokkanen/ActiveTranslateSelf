@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby: [2.7, 3.0.1]
+        ruby: [2.7]
         bundler: [default]
         gemfile:
           - rails-5.2
@@ -19,9 +19,9 @@ jobs:
           - rails-master
         include:
           - { ruby: "2.7", gemfile: "rails-5.2", bundler: "default" }
-          - { ruby: "3.0.1", gemfile: "rails-6.0", bundler: "default" }
-          - { ruby: "3.0.1", gemfile: "rails-6.1", bundler: "default" }
-          - { ruby: "3.0.1", gemfile: "rails-master", bundler: "default" }
+          - { ruby: "2.7", gemfile: "rails-6.0", bundler: "default" }
+          - { ruby: "2.7", gemfile: "rails-6.1", bundler: "default" }
+          - { ruby: "2.7", gemfile: "rails-master", bundler: "default" }
 
     env:
       BUNDLE_GEMFILE: gemfiles/${{ matrix.gemfile }}.gemfile
