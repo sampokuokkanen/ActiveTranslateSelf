@@ -1,7 +1,10 @@
-require "active_translate_self/version"
-require "active_translate_self/engine"
-require "active_translate_self/core_ext"
+# frozen_string_literal: true
 
+require 'active_translate_self/version'
+require 'active_translate_self/engine'
+require 'active_translate_self/core_ext'
+
+# A Rails engine that connects TranslateSelf to Rails
 module ActiveTranslateSelf
   mattr_accessor :auth_key
   mattr_accessor :host
@@ -12,5 +15,4 @@ module ActiveTranslateSelf
       config.host = ActiveTranslateSelf.host || 'https://api-free.deepl.com' # Default value is 'https://api.deepl.com'
     end
   end
-
 end

@@ -3,7 +3,6 @@
 require 'test_helper'
 
 class ActiveTranslateSelfTest < ActionDispatch::IntegrationTest
-
   test 'railtie is loaded' do
     assert_equal ::Rails::Engine, ActiveTranslateSelf::Engine.superclass
   end
@@ -15,6 +14,6 @@ class ActiveTranslateSelfTest < ActionDispatch::IntegrationTest
   test 'the gem will not make the app crash' do
     get '/'
     assert_response :success
-    assert_select "h1", 'Hei'
+    assert_select 'h1', 'Hei'
   end
 end
