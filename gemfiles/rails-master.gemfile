@@ -3,4 +3,4 @@
 source 'https://rubygems.org'
 
 gemspec path: '../'
-gem 'railties', github: 'rails/rails'
+gem 'rails', github: 'rails/rails'
