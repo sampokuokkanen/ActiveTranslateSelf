@@ -1,5 +1,8 @@
 # ActiveTranslateSelf
 
+[![Gem Version](http://img.shields.io/gem/v/active_translate_self.svg)](https://rubygems.org/gems/active_translate_self)
+[![Gem Downloads](https://img.shields.io/gem/dt/active_translate_self.svg)](https://rubygems.org/gems/active_translate_self)
+
 String! Translate yourself! A very хорошо gem!
 
 Finnish, English, Japanese, Russian! 
