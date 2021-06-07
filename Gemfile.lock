@@ -3,7 +3,7 @@ PATH
   specs:
     active_translate_self (0.1.0)
       rails (>= 5.2)
-      translate_self (~> 0.3.0)
+      translate_self (> 0.3.0)
 
 GEM
   remote: https://rubygems.org/
@@ -129,7 +129,7 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
     thor (1.1.0)
-    translate_self (0.3.0)
+    translate_self (0.6.0)
       deepl-rb
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
