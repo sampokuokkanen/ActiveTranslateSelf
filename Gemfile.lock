@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    active_translate_self (0.1.0)
+    active_translate_self (0.2.0)
       rails (>= 5.2)
       translate_self (> 0.3.0)
 
