@@ -30,6 +30,9 @@ And the initializer should just read that value like below:
 ActiveTranslateSelf.auth_key = Rails.application.credentials.dig(:deepl, :auth_key)
 ```
 
+The TranslateSelf gem uses the free DeepL servers by default, but you can also set 
+`ActiveTranslateSelf.host` if you want to use the pro license servers. 
+
 ## Installation
 Add this line to your application's Gemfile:
 
