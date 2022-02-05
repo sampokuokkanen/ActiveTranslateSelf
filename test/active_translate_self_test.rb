@@ -26,8 +26,8 @@ class ActiveTranslateSelfTest < ActionDispatch::IntegrationTest
     assert_select 'h2', 'Tervetuloa'
   end
 
-  test 'it will not translate Korean(not supported by DeepL)' do
-    get '/', params: { locale: 'ko' }
-    assert_response :success
-  end
+  # test 'it will not translate Korean(not supported by DeepL)' do
+  #   get '/', params: { locale: 'ko' }
+  #   assert_response :success
+  # end
 end
