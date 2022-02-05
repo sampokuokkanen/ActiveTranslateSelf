@@ -27,8 +27,9 @@ if I18n::Backend::ActiveRecord::Translation.table_exists?
   I18n::Backend::ActiveRecord.include I18n::Backend::Memoize
   I18n::Backend::Simple.include I18n::Backend::Memoize
   I18n::Backend::Simple.include I18n::Backend::Pluralization
-  # Add this!
-  I18n::Backend::Simple.include I18n::Backend::ActiveRecord::ActiveTranslateSelf::Missing
+  # This is the monkeypatch!
+  I18n::Backend::ActiveRecord::Missing.prepend ActiveTranslateSelf::Missing
+  I18n::Backend::Simple.include I18n::Backend::ActiveRecord::Missing
 
   I18n.backend = I18n::Backend::Chain.new(I18n::Backend::Simple.new, I18n.backend)
 end

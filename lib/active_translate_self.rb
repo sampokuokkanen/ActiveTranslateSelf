@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-require 'active_translate_self/version'
-require 'active_translate_self/engine'
-require 'active_translate_self/core_ext'
-require 'i18n/backend/active_record/active_translate_self/missing'
+require "zeitwerk"
+loader = Zeitwerk::Loader.for_gem
+loader.setup # ready!
 
 # A Rails engine that connects TranslateSelf to Rails
 module ActiveTranslateSelf
@@ -17,3 +16,5 @@ module ActiveTranslateSelf
     end
   end
 end
+
+loader.eager_load # optionally

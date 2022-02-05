@@ -8,16 +8,6 @@ env:
 jobs:
   test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        ruby: [3.0]
-        bundler: [default]
-        gemfile:
-          - rails_6.0
-          - rails_6.1
-          - rails_master
-    env:
-      BUNDLE_GEMFILE: gemfiles/${{ matrix.gemfile }}.gemfile
     steps:
       # https://github.com/marketplace/actions/checkout
       - uses: actions/checkout@v2
@@ -25,7 +15,10 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7
+          ruby-version: 3.0
           bundler-cache: true # runs `bundle install` and caches gems automatically
+      - name: db migrate
+        run: |
+          bundle exec rails db:migrate
       - name: Run tests
         run: bundle exec rake test
