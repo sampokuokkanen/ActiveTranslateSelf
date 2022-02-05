@@ -10,10 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby: [2.7]
+        ruby: [3.0]
         bundler: [default]
         gemfile:
-          - rails_5.2
           - rails_6.0
           - rails_6.1
           - rails_master
