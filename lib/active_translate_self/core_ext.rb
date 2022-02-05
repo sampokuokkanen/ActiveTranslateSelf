@@ -2,9 +2,6 @@
 
 require 'translate_self/translation'
 
-module ActiveTranslateSelf
-  module CoreExt
-    include Translation
-  end
+class String
+  include Translation
 end
-String.include ActiveTranslateSelf::CoreExt
