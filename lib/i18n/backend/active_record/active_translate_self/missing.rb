@@ -36,8 +36,8 @@ module I18n
           def store_default_translation(locale, key, interpolations)
             translation = ActiveRecord::Translation.new locale: locale.to_s, key: key
             default = I18n.t(key, locale: I18n.default_locale || :en)
-            pp I18n.default_locale
-            pp default
+            Rails.logger.info I18n.default_locale
+            Rails.logger.info default
             translation.value = default.public_send "to_#{locale}" if default.respond_to?("to_#{locale}")
             translation.interpolations = interpolations
             translation.save
