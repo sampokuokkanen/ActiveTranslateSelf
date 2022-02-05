@@ -11,7 +11,7 @@ require 'active_translate_self'
 
 module Dummy
   class Application < Rails::Application
-    config.load_defaults Rails::VERSION::STRING.to_f
+    config.load_defaults 7.1
 
     # Configuration for the application, engines, and railties goes here.
     #

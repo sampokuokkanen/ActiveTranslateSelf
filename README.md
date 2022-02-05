@@ -14,6 +14,28 @@ Any and all languages supported, as long as they're also supported by DeepL. If 
 
 supported languages are: Bulgarian, Chinese, Czech, Danish, Dutch, English, Estonian, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Latvian, Lithuanian, Polish, Portuguese, Romanian, Russian, Slovak, Slovenian, Spanish, and Swedish.
 
+## Automatic translations with I18n ActiveRecord backend
+
+So first, install the ActiveRecord backend for I18n from the link below: 
+[svenfuchs/i18n-active_record: I18n ActiveRecord backend](https://github.com/svenfuchs/i18n-active_record)
+
+Then, include the following in your `config/initializers/i18n_active_record.rb`:
+
+```ruby
+if I18n::Backend::ActiveRecord::Translation.table_exists?
+  I18n.backend = I18n::Backend::ActiveRecord.new
+  I18n::Backend::ActiveRecord.include I18n::Backend::Memoize
+  I18n::Backend::Simple.include I18n::Backend::Memoize
+  I18n::Backend::Simple.include I18n::Backend::Pluralization
+  # Add this!
+  I18n::Backend::Simple.include I18n::Backend::ActiveRecord::ActiveTranslateSelf::Missing
+
+  I18n.backend = I18n::Backend::Chain.new(I18n::Backend::Simple.new, I18n.backend)
+end
+```
+
+Now just add a new translation language to your app, and it will be automatically translated using the default language's translation. 
+
 ## Usage
 Easy to use! 
 

@@ -13,7 +13,21 @@ class ActiveTranslateSelfTest < ActionDispatch::IntegrationTest
 
   test 'the gem will not make the app crash' do
     get '/'
-    assert_response :success
     assert_select 'h1', 'Hei'
+  end
+
+  test 'it will show the default i18n language' do
+    get '/'
+    assert_select 'h2', 'Welcome'
+  end
+
+  test 'it will translate missing i18n key' do
+    get '/', params: { locale: 'fi' }
+    assert_select 'h2', 'Tervetuloa'
+  end
+
+  test 'it will not translate Korean(not supported by DeepL)' do
+    get '/', params: { locale: 'ko' }
+    assert_response :success
   end
 end

@@ -3,6 +3,7 @@
 require 'active_translate_self/version'
 require 'active_translate_self/engine'
 require 'active_translate_self/core_ext'
+require 'i18n/backend/active_record/active_translate_self/missing'
 
 # A Rails engine that connects TranslateSelf to Rails
 module ActiveTranslateSelf

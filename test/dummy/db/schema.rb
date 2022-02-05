@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_13_015406) do
-
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+ActiveRecord::Schema.define(version: 20_220_205_025_732) do
+  create_table 'translations', force: :cascade do |t|
+    t.string 'locale'
+    t.string 'key'
+    t.text 'value'
+    t.text 'interpolations'
+    t.boolean 'is_proc', default: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
+  create_table 'users', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+  end
 end
